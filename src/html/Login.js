@@ -1,11 +1,13 @@
 import { getElementError } from "@testing-library/react";
 import { useState } from "react"
+import { useNavigate } from "react-router-dom";
 
 //import fuera de react
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
+    const navigate = useNavigate();
 
     const login = () => {
         const Password = document.getElementById("pass").value
@@ -19,12 +21,10 @@ const Login = () => {
         }
         else if (User === "Usuario" && Password === "123") {
             toast.success("Entrando")
+            navigate("/dashboard");
         } else {
             toast.error("credenciales invalidas")
-
-
         }
-
     }
 
 
